@@ -7,12 +7,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Update and upgrade the system
-apt update && apt upgrade -y
-
-# add user
-# adduser r
-# usermod -aG r
-# apt install sudo
+apt update -y && apt upgrade -y
 
 # Check if a reboot is required
 if [ -f /var/run/reboot-required ]; then
@@ -39,3 +34,5 @@ then
 else
     echo "ufw is not active"
 fi
+
+echo "Install complete, please reboot now!" || exit
